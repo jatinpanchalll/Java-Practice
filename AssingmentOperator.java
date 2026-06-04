@@ -6,10 +6,6 @@ public class AssingmentOperator {
         int A = sc.nextInt();
   
         A += A;
-        A -= A;
-        A *= A;
-        // A /= A;
-        // A %= A;
 
         System.out.println(A);
 
