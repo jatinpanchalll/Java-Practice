@@ -7,8 +7,8 @@ public class SmallestInArray {
             Smallest = Numbers[i];
         }
       }        return Smallest;
-
     }
+    
     public static void main(String[] args) {
         int Numbers[] = {2,3,5,7,2,9,10,58,1};
         
