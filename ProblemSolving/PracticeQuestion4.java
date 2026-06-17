@@ -1,5 +1,6 @@
 package PracticeQuestions;
 
+// BINERY SEARCH
 public class PracticeQuestion4 {
     public static int BinarySearch(int array[], int key){
       int Start = 0, End = array.length-1;
