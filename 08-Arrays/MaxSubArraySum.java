@@ -15,6 +15,7 @@ public class MaxSubArraySum {
              for(int k=Start; k<=end; k++){
                currsum += Numbers[k];
             }
+            
         System.out.println(currsum);
         if(maxsum < currsum){
             maxsum = currsum;
