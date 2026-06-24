@@ -4,19 +4,19 @@
 Sorting is the process of arranging elements in a specific order, usually ascending or descending.
 
 
-### Bubble Sort
+## Bubble Sort
 - Large elements move to the end of the array by swapping adjacent elements.
 
 
-### Selection Sort
+## Selection Sort
 - Pick the smallest element and place it at the beginning.
 
 
-### Insertion Sort
+## Insertion Sort
 - Pick an element and place it in the correct position in the sorted part.
 
 
-### In-Built Sort
+## In-Built Sort
 #### Ascending Order
 ```java
 import java.util.Arrays;
@@ -34,7 +34,7 @@ Arrays.sort(arr, Collections.reverseOrder());
 **Note:** Use `Integer[]` instead of `int[]` when using `Collections.reverseOrder()`.
 
 
-### Counting Sort
+## Counting Sort
 - Efficient for sorting integers within a limited range.
 - For small numbers, Konsa kitni bar aata hai.
 
