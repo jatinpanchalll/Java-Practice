@@ -1,6 +1,18 @@
 # Java Practice
+This repository contains my Java learning journey, DSA practice programs, and problem-solving solutions.
 
-This repository contains my Java learning journey and practice programs.
+## Topics Covered
+- Basics
+- Input / Output
+- Operators
+- Conditional Statements
+- Loops
+- Patterns
+- Functions
+- Arrays
+- Sorting Algorithms
+- 2D Arrays
+- Problem Solving
 
 ## Author
-Jatin Panchal
+**Jatin Panchal**
