@@ -43,11 +43,6 @@ Access Formula:
 matrix[row][column]
 ```
 
-Example:
-```java
-matrix[2][3]
-
-
 ## Time Complexity
 
 | Operation | Complexity     |
