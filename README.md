@@ -12,7 +12,7 @@ This repository contains my Java learning journey, DSA practice programs, and pr
 - Arrays
 - Sorting Algorithms
 - 2D Arrays
-- Problem Solving
+
 
 ## Author
 **Jatin Panchal**
