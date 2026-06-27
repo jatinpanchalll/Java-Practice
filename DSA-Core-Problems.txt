@@ -8,3 +8,6 @@ ARRAY
 1. Spiral MatriX
 2. Diagonal Sum (Both Questions)
 3. Search In Sorted Matrix
+
+STRINGS
+1. 
