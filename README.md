@@ -13,6 +13,7 @@ This repository contains my Java learning journey, DSA practice programs, and pr
 - Sorting Algorithms
 - 2D Arrays
 - Strings
+- Bit Manupulation
 
 
 ## Author

@@ -14,3 +14,14 @@ STRINGS
 2. Shortest Path
 3. Lower Case To Uppercase
 4. String Compression
+
+BIT MANUPULATION
+1. Check Odd or Even
+2. Get ith Bit
+3. Set ith Bit
+4. Clear ith Bit
+5. Check Power of Two
+6. Fast Exponentiation
+
+REMAINING 
+1. 
