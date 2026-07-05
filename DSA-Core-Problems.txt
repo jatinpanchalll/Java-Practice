@@ -23,5 +23,20 @@ BIT MANUPULATION
 5. Check Power of Two
 6. Fast Exponentiation
 
-REMAINING 
-1. 
+OBJECT-ORIENTED PROGRAMMING (OOP)
+1. Classes & Objects
+2. Access Modifiers
+3. Getters & Setters
+4. Encapsulation
+5. Constructors
+6. Types of Constructors
+7. Copy Constructor
+8. Inheritance
+9. Multilevel Inheritance
+10. Hierarchical Inheritance
+11. Hybrid Inheritance
+12. Polymorphism
+13. Abstraction
+14. Interfaces
+15. Static Keyword
+16. Super Keyword
