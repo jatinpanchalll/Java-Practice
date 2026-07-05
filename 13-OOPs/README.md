@@ -2105,7 +2105,7 @@ Object Used
 
 ### 1. Constructor with Return Type
 
-❌ Wrong
+ Wrong
 
 ```java
 void Student(){
