@@ -2,7 +2,7 @@
 
 Object-Oriented Programming (OOP) is a programming paradigm in which a program is designed using **Objects** and **Classes** instead of only functions.
 
-OOP helps us write code that is:
+OOP helps developers write code that is:
 
 - Reusable
 - Modular
@@ -10,7 +10,7 @@ OOP helps us write code that is:
 - Easy to Maintain
 - Scalable
 
-Java is a pure object-oriented inspired language and most real-world Java applications are built using OOP concepts.
+Java follows OOP principles to model real-world entities and build efficient applications.
 
 ---
 
@@ -18,81 +18,80 @@ Java is a pure object-oriented inspired language and most real-world Java applic
 
 1. Introduction to OOP
 2. Why OOP?
-3. Class
-4. Object
-5. Class vs Object
-6. Memory Representation
-7. Reference Variable
-8. Creating Objects
-9. Accessing Members
-10. Access Modifiers
-11. Getters & Setters
-12. Encapsulation
-13. Constructors
-14. Types of Constructors
-15. Copy Constructor
-16. Shallow Copy & Deep Copy
-17. Destructor
-18. Advantages of OOP
-19. Disadvantages of OOP
-20. Important Notes
-21. Common Mistakes
-22. Interview Questions
-23. Programs Included
-24. Quick Revision
+3. Four Pillars of OOP
+4. What is a Class?
+5. What is an Object?
+6. Class vs Object
+7. Memory Representation
+8. Reference Variable
+9. Creating Objects
+10. Accessing Members
+11. Important Keywords
+12. Real-Life Example
+13. Advantages
+14. Disadvantages
+15. Important Notes
+16. Common Mistakes
+17. Interview Questions
+18. Quick Revision
 
 ---
 
 # What is OOP?
 
-Object-Oriented Programming (OOP) is a programming style where data and functions are grouped together inside **Objects**.
+Object-Oriented Programming (OOP) is a programming paradigm that organizes code into **Objects** instead of only using functions.
 
-Instead of writing everything inside functions, we create **Classes** and then create **Objects** from those classes.
+An object combines:
 
-OOP models real-world entities like:
+- Data (Variables / Attributes)
+- Behaviour (Methods / Functions)
+
+OOP helps us represent real-world entities such as:
 
 - Student
 - Car
-- Mobile
 - Bank Account
 - Employee
+- Mobile Phone
 
-Each object has:
-
-- State (Variables)
-- Behaviour (Methods)
+using software objects.
 
 ---
 
 # Why OOP?
 
-Imagine you are creating a **College Management System**.
+Imagine building a **College Management System**.
 
-Without OOP
+### Without OOP
 
 ```text
-Student1
-Student2
-Student3
-Student4
+Student1_Name
+Student1_RollNo
+Student1_Age
+
+Student2_Name
+Student2_RollNo
+Student2_Age
+
+Student3_Name
+Student3_RollNo
+Student3_Age
 ```
 
-Every student needs separate variables and functions.
+As the number of students increases,
 
-As the project grows,
-
-- Code becomes lengthy.
+- Code becomes repetitive.
 - Maintenance becomes difficult.
 - Reusability becomes poor.
 
 ---
 
-Using OOP
+### With OOP
 
 Create only one class.
 
 ```java
-class Student{
+class Student {
 
 }
 ```
@@ -103,16 +102,31 @@ Now create multiple objects.
 Student s1 = new Student();
 Student s2 = new Student();
 Student s3 = new Student();
-Student s4 = new Student();
 ```
 
-Advantages
+Each object stores different data while sharing the same blueprint.
 
-- Less code
-- Better organization
-- Easy maintenance
-- Easy debugging
-- Code reusability
+This makes the code:
+
+- Cleaner
+- Reusable
+- Easier to maintain
+- Easy to extend
+
+---
+
+# Four Pillars of OOP
+
+Java OOP is mainly based on four concepts.
+
+| Concept | Purpose |
+|---------|---------|
+| Encapsulation | Data Hiding |
+| Inheritance | Code Reusability |
+| Polymorphism | One Interface, Multiple Forms |
+| Abstraction | Hides Implementation Details |
+
+These four concepts work together to build flexible and maintainable software.
 
 ---
 
@@ -120,12 +134,12 @@ Advantages
 
 A **Class** is a blueprint or template used to create objects.
 
-A class defines
+A class defines:
 
-- Variables (Properties)
-- Methods (Behaviour)
+- Properties (Variables)
+- Behaviours (Methods)
 
-A class itself does **NOT** occupy memory.
+A class itself **does not occupy memory**.
 
 ### Syntax
 
@@ -138,13 +152,13 @@ class Student{
 ### Example
 
 ```java
-class Pen{
+class Student {
 
-    String color;
-    int tip;
+    String name;
+    int rollNo;
 
-    void write(){
-        System.out.println("Writing...");
+    void study() {
+        System.out.println("Studying...");
     }
 
 }
@@ -152,28 +166,31 @@ class Pen{
 
 Here,
 
-Pen is only a blueprint.
+Student is only a blueprint.
 
-No real Pen exists.
+No actual Student exists yet.
 
 ---
 
 # What is an Object?
 
-An Object is an **instance of a class**.
+An **Object** is an instance of a class.
 
-Memory is allocated only when an object is created.
+Objects occupy memory and represent real-world entities.
 
-### Example
+Example
 
 ```java
-Pen p1 = new Pen();
+Student s1 = new Student();
 ```
 
 Here,
 
-- p1 is a reference variable.
-- A Pen object is created inside Heap Memory.
+- Student → Class
+- s1 → Reference Variable
+- new → Creates Object
+
+Now a Student object is created inside Heap Memory.
 
 ---
 
@@ -183,9 +200,9 @@ Here,
 |--------|--------|
 | Blueprint | Instance of Class |
 | Logical Entity | Physical Entity |
-| No Memory | Occupies Memory |
-| Created Once | Multiple Objects can be created |
+| Does not occupy memory | Occupies memory |
 | Defines Variables & Methods | Uses Variables & Methods |
+| Created once | Multiple objects can be created |
 
 ---
 
@@ -194,54 +211,57 @@ Here,
 Example
 
 ```java
-Pen p1 = new Pen();
+Student s1 = new Student();
 ```
 
 ```text
+                JVM Memory
+
 Stack Memory                     Heap Memory
 
-+-----------+                 +----------------------+
-| p1 ------ |---------------> | Pen Object           |
-+-----------+                 | color = null         |
-                              | tip = 0              |
-                              +----------------------+
++-----------+                +----------------------+
+| s1 ------ |--------------> | Student Object       |
++-----------+                | name = null          |
+                             | rollNo = 0           |
+                             +----------------------+
 ```
 
 ### Explanation
 
-Stack stores
+**Stack Memory**
 
+Stores:
+
+- Local Variables
+- Method Calls
 - Reference Variables
 
-Heap stores
+**Heap Memory**
 
-- Actual Objects
+Stores:
 
-Memory is allocated only after
+- Objects
+- Instance Variables
 
-```java
-new
-```
-
-is executed.
+Memory is allocated in Heap only after using the `new` keyword.
 
 ---
 
 # What is a Reference Variable?
 
-A Reference Variable stores the address of an object.
+A Reference Variable stores the memory address (reference) of an object.
 
 Example
 
 ```java
-Pen p1 = new Pen();
+Student s1 = new Student();
 ```
 
 Here,
 
-- p1 is NOT the object.
-- p1 stores the address of the object.
-- Actual object exists inside Heap Memory.
+- `s1` is NOT the object.
+- `s1` stores the address of the object.
+- The actual object is stored inside Heap Memory.
 
 ---
 
@@ -261,32 +281,32 @@ Student s1 = new Student();
 Student s2 = new Student();
 ```
 
-Each object gets its own memory.
+Each object has its own memory.
 
-Changing one object does not affect another object.
+Changing one object does not affect another.
 
 ---
 
 # Accessing Members
 
-Use Dot Operator.
+Use the **Dot (`.`) Operator** to access variables and methods.
 
 Example
 
 ```java
 s1.name = "Jatin";
 
-s1.roll = 101;
+s1.rollNo = 101;
 
 s1.study();
 ```
 
-The Dot Operator is used to access
+The Dot Operator allows an object to access:
 
 - Variables
 - Methods
 
-of an object.
+defined inside the class.
 
 ---
 
@@ -296,9 +316,9 @@ of an object.
 
 Purpose
 
-- Creates Object
-- Allocates Heap Memory
-- Returns Reference
+- Creates a new object.
+- Allocates memory in Heap.
+- Returns the object's reference.
 
 Example
 
@@ -318,41 +338,168 @@ Purpose
 Example
 
 ```java
-s1.name
+s1.name = "Jatin";
 
 s1.study();
 ```
 
 ---
 
+# Real-Life Example
+
+Imagine a **Car Factory**.
+
+### Blueprint
+
+```text
+Car
+```
+
+### Objects
+
+```text
+BMW
+
+Audi
+
+Tesla
+
+Hyundai
+```
+
+All cars are created from the same blueprint.
+
+Similarly,
+
+Objects are created from a Class.
+
+---
+
+# Advantages of OOP
+
+- Code Reusability
+- Easy Maintenance
+- Better Security
+- Modular Programming
+- Easy Debugging
+- Real-World Representation
+- Scalability
+
+---
+
+# Disadvantages of OOP
+
+- Slightly difficult for beginners.
+- Uses more memory than procedural programming.
+- Initial design takes more time.
+- Small programs may become unnecessarily lengthy.
+
+---
+
+# Important Notes
+
+- A class does not occupy memory.
+- Objects are stored in Heap Memory.
+- Reference variables are stored in Stack Memory.
+- One class can create multiple objects.
+- Every object has its own copy of instance variables.
+- Methods can be shared among all objects.
+
+---
+
+# Common Mistakes
+
+❌ Class and Object are the same.
+
+❌ Reference variable is the object.
+
+❌ Memory is allocated for the class.
+
+✔ Memory is allocated only after object creation.
+
+✔ Objects are stored in Heap Memory.
+
+✔ Reference variables are stored in Stack Memory.
+
+---
+
+# Interview Questions
+
+### Basic
+
+1. What is OOP?
+2. Why is OOP used?
+3. What is a Class?
+4. What is an Object?
+5. Difference between Class and Object?
+
+### Intermediate
+
+6. What is a Reference Variable?
+7. What does the `new` keyword do?
+8. What is the Dot Operator?
+9. Where are objects stored?
+10. Difference between Stack and Heap Memory?
+
+### Advanced
+
+11. Why doesn't a class occupy memory?
+12. Can one class create multiple objects?
+13. What happens internally when `new` is executed?
+
+---
+
+# Quick Revision
+
+- OOP = Programming using Classes and Objects.
+- Class = Blueprint.
+- Object = Instance of Class.
+- Objects are stored in Heap Memory.
+- Reference Variables are stored in Stack Memory.
+- `new` creates objects.
+- `.` accesses members.
+- One class can create multiple objects.
+
 # Access Modifiers
 
 Access Modifiers are keywords in Java that control the visibility and accessibility of classes, variables, methods, and constructors.
 
-They help implement **Data Hiding** and **Encapsulation** by restricting access to object data.
+They determine **who can access a member** within a program.
+
+Access Modifiers help implement **Encapsulation** and improve **Data Security**.
 
 ---
 
 ## Why do we need Access Modifiers?
 
-Imagine anyone could directly change a student's marks.
+Suppose every variable inside a class is public.
 
 ```java
-student.marks = -500;
+class Student {
+
+    public int marks;
+
+}
 ```
 
-This is not valid.
+Now anyone can write
 
-Using Access Modifiers, we can control who can access or modify data.
+```java
+Student s1 = new Student();
 
-This makes our program more secure and reliable.
+s1.marks = -100;
+```
+
+This is incorrect because marks should never be negative.
+
+To prevent unauthorized access, Java provides **Access Modifiers**.
 
 ---
 
 ## Types of Access Modifiers
 
 | Modifier | Same Class | Same Package | Subclass | Other Package |
-|----------|:----------:|:------------:|:--------:|:-------------:|
+|-----------|:----------:|:------------:|:---------:|:-------------:|
 | `private` | ✅ | ❌ | ❌ | ❌ |
 | Default | ✅ | ✅ | ❌ | ❌ |
 | `protected` | ✅ | ✅ | ✅ | ❌* |
@@ -364,28 +511,28 @@ This makes our program more secure and reliable.
 
 ## private
 
-A private member can only be accessed inside the same class.
-
-Example
+Accessible only inside the same class.
 
 ```java
-class Student{
+class Student {
 
     private int marks;
 
 }
 ```
 
-Only methods inside Student class can access marks.
+Best choice for instance variables.
 
 ---
 
 ## Default
 
-If no access modifier is written, Java uses **Default** access.
+If no access modifier is specified,
+
+Java automatically assigns **Default** access.
 
 ```java
-class Student{
+class Student {
 
     int rollNo;
 
@@ -398,24 +545,28 @@ Accessible only inside the same package.
 
 ## protected
 
-A protected member is accessible
+Accessible
 
 - Inside the same package.
-- Inside subclasses (Inheritance).
+- Inside subclasses.
 
 ```java
 protected int age;
 ```
 
+Mostly used with Inheritance.
+
 ---
 
 ## public
 
-A public member can be accessed from anywhere in the program.
+Accessible from anywhere.
 
 ```java
 public String name;
 ```
+
+Use only when the member should be available everywhere.
 
 ---
 
@@ -437,61 +588,37 @@ Visibility increases from top to bottom.
 
 ## Memory Note
 
-Access Modifiers **do not change where an object is stored.**
+Access Modifiers do **NOT** affect memory allocation.
 
-Objects are still created inside Heap Memory.
+Objects are still stored inside Heap Memory.
 
-They only control who can access the object's members.
-
----
-
-## Interview Tip
-
-Remember
-
-```text
-private
-
-↓
-
-default
-
-↓
-
-protected
-
-↓
-
-public
-```
-
-This is one of the most common interview questions.
+Access Modifiers only control accessibility.
 
 ---
 
 # Getters and Setters
 
-Getters and Setters are public methods used to read and update private variables.
+Getters and Setters are public methods used to **read** and **modify** private variables.
 
-Instead of accessing variables directly, we use methods.
-
-This provides better security and control over object data.
+They provide controlled access to object data.
 
 ---
 
 ## Why do we need Getters and Setters?
 
-Suppose we have
+Private variables cannot be accessed directly.
+
+Example
 
 ```java
-class Student{
+class Student {
 
     private String name;
 
 }
 ```
 
-Direct access
+Trying to access
 
 ```java
 Student s1 = new Student();
@@ -501,13 +628,9 @@ s1.name = "Jatin";
 
 ❌ Compile Time Error
 
-Because
+To access private data,
 
-name is private.
-
-Therefore,
-
-Java provides Getter and Setter methods.
+Java uses Getter and Setter methods.
 
 ---
 
@@ -583,20 +706,14 @@ class Student{
     }
 
 }
+```
 
-public class Main{
+```java
+Student s1 = new Student();
 
-    public static void main(String[] args){
+s1.setName("Jatin");
 
-        Student s1 = new Student();
-
-        s1.setName("Jatin");
-
-        System.out.println(s1.getName());
-
-    }
-
-}
+System.out.println(s1.getName());
 ```
 
 Output
@@ -612,15 +729,13 @@ Jatin
 | Getter | Setter |
 |----------|--------|
 | Reads Data | Updates Data |
-| Returns Value | Usually returns void |
+| Returns Value | Usually Returns void |
 | Starts with get | Starts with set |
-| Does not modify data | Modifies data |
+| Doesn't Modify Data | Modifies Data |
 
 ---
 
 ## Why do we use "this" keyword?
-
-Example
 
 ```java
 public void setName(String name){
@@ -632,41 +747,33 @@ public void setName(String name){
 
 Here,
 
-Left Side
+`this.name`
 
-```java
-this.name
-```
+→ Instance Variable
 
-is the instance variable.
+`name`
 
-Right Side
+→ Method Parameter
 
-```java
-name
-```
-
-is the method parameter.
-
-Without `this`, Java cannot distinguish between them.
+The `this` keyword removes ambiguity between them.
 
 ---
 
 ## Memory Representation
 
 ```text
-Stack Memory                    Heap Memory
+Stack Memory                     Heap Memory
 
-+-----------+                +-----------------------+
-| s1 ------ |--------------> | Student Object        |
-+-----------+                | name = "Jatin"        |
-                             +-----------------------+
++-----------+                +------------------------+
+| s1 ------ |--------------> | Student Object         |
++-----------+                | name = "Jatin"         |
+                             +------------------------+
 
 setName()
 
 ↓
 
-Updates Heap Object
+Updates Object
 
 ↓
 
@@ -681,9 +788,7 @@ Returns Value
 
 ## Validation using Setter
 
-One of the biggest advantages of Setter is Validation.
-
-Example
+One advantage of Setter is validation.
 
 ```java
 public void setAge(int age){
@@ -697,54 +802,38 @@ public void setAge(int age){
 }
 ```
 
-Now invalid values cannot be stored.
-
----
-
-## Advantages
-
-- Data Hiding
-- Better Security
-- Controlled Access
-- Validation
-- Easy Maintenance
-- Supports Encapsulation
-
----
-
-## Common Mistakes
-
-❌ Accessing private variables directly.
-
-❌ Forgetting to use this keyword.
-
-❌ Returning wrong variable inside Getter.
-
-✔ Always access private variables through Getter and Setter.
+Invalid values cannot be stored.
 
 ---
 
 # Encapsulation
 
-Encapsulation is the process of wrapping **data (variables)** and **methods** into a single unit (Class).
+Encapsulation is the process of combining
+
+- Data (Variables)
+- Methods
+
+into a single unit called **Class**.
 
 It is also known as **Data Hiding**.
 
 ---
 
-## Real Life Example
+## Real-Life Example
 
 Think about an ATM Machine.
 
 You can
 
-- Deposit Money
 - Withdraw Money
+- Deposit Money
 - Check Balance
 
-But you cannot directly access or modify the bank database.
+But,
 
-The data is hidden.
+You cannot directly access the bank database.
+
+Only authorized operations are allowed.
 
 This is Encapsulation.
 
@@ -772,7 +861,7 @@ class Student{
 }
 ```
 
-Variables are hidden.
+The variable is hidden.
 
 Access is provided using methods.
 
@@ -782,33 +871,56 @@ Access is provided using methods.
 
 - Data Security
 - Better Control
+- Data Validation
 - Easy Maintenance
 - Flexible Code
-- Validation
 - Prevents Unauthorized Access
+
+---
+
+## Important Notes
+
+- Always declare instance variables as private.
+- Access private data using Getter and Setter.
+- Encapsulation improves code security.
+- Setter can validate data before updating it.
+- Getter only returns data.
+
+---
+
+## Common Mistakes
+
+❌ Declaring all variables public.
+
+❌ Accessing private variables directly.
+
+❌ Forgetting to use `this`.
+
+✔ Use private variables.
+
+✔ Use Getter and Setter methods.
 
 ---
 
 ## Interview Questions
 
+### Basic
+
 1. What are Access Modifiers?
+2. Name all Access Modifiers.
+3. Difference between private and public.
 
-2. Difference between private and public?
-
-3. What is Default Access Modifier?
+### Intermediate
 
 4. What are Getters?
-
 5. What are Setters?
+6. Why do we use Getter and Setter methods?
+7. What is Encapsulation?
 
-6. Why are Getters and Setters used?
+### Advanced
 
-7. Why is this keyword used?
-
-8. What is Encapsulation?
-
-9. How do Getters and Setters implement Encapsulation?
-
+8. Why are variables declared private?
+9. Why is `this` used in Setter?
 10. Can Setter perform validation?
 
 ---
@@ -816,27 +928,26 @@ Access is provided using methods.
 ## Quick Revision
 
 - Access Modifiers control accessibility.
-- private gives maximum security.
+- private provides maximum security.
 - Getter reads data.
 - Setter updates data.
-- Setter can validate data.
-- this refers to current object.
-- Encapsulation = Data + Methods inside one class.
+- Setter can validate values.
+- Encapsulation = Data + Methods.
 - Encapsulation provides Data Hiding.
 
 # Constructors
 
-A **Constructor** is a special method that is automatically called when an object is created.
+A **Constructor** is a special member of a class that is automatically called when an object is created.
 
-The main purpose of a constructor is to **initialize the object's data**.
+Its main purpose is to **initialize the object's data**.
 
-Unlike normal methods, constructors are executed automatically during object creation.
+Unlike methods, constructors are invoked automatically during object creation.
 
 ---
 
 ## Why do we need Constructors?
 
-Suppose we have a Student class.
+Suppose we have the following class.
 
 ```java
 class Student {
@@ -853,24 +964,26 @@ Now create an object.
 Student s1 = new Student();
 ```
 
-At this point,
+By default,
 
-- name = null
-- age = 0
+```text
+name = null
+age = 0
+```
 
-If we want every object to have some initial values automatically,
+If we want every object to start with meaningful values,
 
-we use Constructors.
+we use **Constructors**.
 
 ---
 
 ## Characteristics of Constructors
 
-- Constructor name must be same as class name.
-- Constructor has **no return type**.
-- Automatically called when object is created.
-- Used to initialize object data.
-- Every class can have one or more constructors.
+- Constructor name must be the same as the class name.
+- Constructor does not have any return type.
+- Constructor is called automatically.
+- Constructor initializes objects.
+- Every class can have multiple constructors (Constructor Overloading).
 
 ---
 
@@ -891,11 +1004,11 @@ class Student {
 ## Example
 
 ```java
-class Student{
+class Student {
 
     String name;
 
-    Student(){
+    Student() {
 
         name = "Unknown";
 
@@ -903,9 +1016,9 @@ class Student{
 
 }
 
-public class Main{
+public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Student s1 = new Student();
 
@@ -916,7 +1029,7 @@ public class Main{
 }
 ```
 
-Output
+### Output
 
 ```text
 Unknown
@@ -932,26 +1045,26 @@ Example
 Student s1 = new Student();
 ```
 
-Internal Flow
+### Internal Flow
 
 ```text
 Student s1 = new Student();
 
 ↓
 
-Memory Allocated in Heap
+Memory allocated in Heap
 
 ↓
 
-Constructor Called Automatically
+Constructor called automatically
 
 ↓
 
-Variables Initialized
+Variables initialized
 
 ↓
 
-Reference Returned
+Reference returned
 
 ↓
 
@@ -963,37 +1076,33 @@ Stored inside s1
 # Memory Representation
 
 ```text
-Stack Memory                    Heap Memory
+Stack Memory                     Heap Memory
 
-+-----------+               +----------------------+
-| s1 ------ |-------------> | Student Object       |
-+-----------+               | name = "Unknown"     |
-                            | age = 18             |
-                            +----------------------+
-
-Constructor
-
-↓
-
-Initializes Object
++-----------+                +----------------------+
+| s1 ------ |--------------> | Student Object       |
++-----------+                | name = "Unknown"     |
+                             | age = 18             |
+                             +----------------------+
 ```
+
+Constructor initializes the object immediately after memory allocation.
 
 ---
 
 # Types of Constructors
 
-Java provides mainly three types of constructors.
+Java mainly provides two types of constructors.
 
 ## 1. Non-Parameterized Constructor
 
 A constructor without parameters.
 
-Example
+### Example
 
 ```java
-class Student{
+class Student {
 
-    Student(){
+    Student() {
 
         System.out.println("Constructor Called");
 
@@ -1006,16 +1115,16 @@ class Student{
 
 ## 2. Parameterized Constructor
 
-A constructor that receives values during object creation.
+A constructor that receives values while creating an object.
 
-Example
+### Example
 
 ```java
-class Student{
+class Student {
 
     String name;
 
-    Student(String name){
+    Student(String name) {
 
         this.name = name;
 
@@ -1024,7 +1133,7 @@ class Student{
 }
 ```
 
-Object Creation
+Creating Object
 
 ```java
 Student s1 = new Student("Jatin");
@@ -1038,25 +1147,53 @@ Jatin
 
 ---
 
-## 3. Copy Constructor
+# Constructor Overloading
 
-A constructor that creates a new object using another object.
+A class can contain multiple constructors with different parameter lists.
 
-Java does not provide a built-in Copy Constructor.
+This is known as **Constructor Overloading**.
 
-We create it manually.
+### Example
+
+```java
+class Student {
+
+    Student() {
+
+    }
+
+    Student(String name) {
+
+    }
+
+    Student(String name, int age) {
+
+    }
+
+}
+```
+
+Java identifies the correct constructor based on the arguments passed.
 
 ---
 
-## Example
+# Copy Constructor
+
+A Copy Constructor creates a new object using another object's data.
+
+Unlike C++, Java does not provide a built-in copy constructor.
+
+We create it manually.
+
+### Example
 
 ```java
-class Student{
+class Student {
 
     String name;
     int age;
 
-    Student(Student s){
+    Student(Student s) {
 
         this.name = s.name;
         this.age = s.age;
@@ -1074,9 +1211,7 @@ Student s1 = new Student();
 Student s2 = new Student(s1);
 ```
 
-Now,
-
-Both objects contain the same values.
+Now both objects contain the same values.
 
 ---
 
@@ -1084,7 +1219,7 @@ Both objects contain the same values.
 
 In Shallow Copy,
 
-only references are copied.
+only the **reference** is copied.
 
 Both objects share the same referenced object.
 
@@ -1100,19 +1235,15 @@ Array
 Object B
 ```
 
-If Object A changes the array,
+If one object changes the array,
 
-Object B also sees the change.
+the other object also sees the changes.
 
----
-
-## Example
+### Example
 
 ```java
 this.marks = s.marks;
 ```
-
-Only reference copied.
 
 ---
 
@@ -1120,9 +1251,9 @@ Only reference copied.
 
 In Deep Copy,
 
-new memory is allocated.
+a new memory location is created.
 
-Each object has its own copy of data.
+Actual data is copied element by element.
 
 ```text
 Object A
@@ -1138,21 +1269,17 @@ Object B
 Array B
 ```
 
-Changing one object does not affect another.
+Changing one object does not affect the other.
 
----
-
-## Example
+### Example
 
 ```java
-for(int i = 0; i < 3; i++){
+for(int i = 0; i < marks.length; i++) {
 
     this.marks[i] = s.marks[i];
 
 }
 ```
-
-Every element is copied individually.
 
 ---
 
@@ -1161,7 +1288,7 @@ Every element is copied individually.
 | Shallow Copy | Deep Copy |
 |--------------|-----------|
 | Copies Reference | Copies Actual Data |
-| Shares Memory | Separate Memory |
+| Shared Memory | Separate Memory |
 | Faster | Slightly Slower |
 | Changes affect both objects | Independent Objects |
 
@@ -1169,19 +1296,13 @@ Every element is copied individually.
 
 # Destructor
 
-A Destructor is used to destroy objects and release memory.
+A Destructor is responsible for destroying objects and releasing memory.
 
 Unlike C++,
 
 Java does **NOT** support user-defined destructors.
 
-Java uses **Garbage Collection (GC)**.
-
-Garbage Collector automatically removes unused objects from Heap Memory.
-
-Therefore,
-
-Java programmers do not manually destroy objects.
+Java automatically manages memory using the **Garbage Collector (GC)**.
 
 ---
 
@@ -1199,7 +1320,7 @@ Now,
 
 The object becomes unreachable.
 
-JVM's Garbage Collector may remove it automatically.
+The Garbage Collector may automatically remove it from Heap Memory.
 
 ---
 
@@ -1207,16 +1328,28 @@ JVM's Garbage Collector may remove it automatically.
 
 | Constructor | Method |
 |-------------|--------|
-| Same name as Class | Any valid name |
-| No Return Type | Has Return Type |
-| Called Automatically | Called Manually |
-| Initializes Objects | Performs Operations |
+| Same name as class | Any valid name |
+| No return type | Has return type |
+| Called automatically | Called manually |
+| Initializes object | Performs operations |
+
+---
+
+# Important Notes
+
+- Constructor is automatically called.
+- Constructor name must match the class name.
+- Constructor has no return type.
+- Constructors can be overloaded.
+- Java does not provide a default Copy Constructor.
+- Java does not support user-defined Destructors.
+- Garbage Collector automatically removes unused objects.
 
 ---
 
 # Common Mistakes
 
-❌ Giving a return type to constructor.
+❌ Giving a return type.
 
 ```java
 void Student(){
@@ -1224,25 +1357,23 @@ void Student(){
 }
 ```
 
-This becomes a method,
-
-NOT a constructor.
+This becomes a method, not a constructor.
 
 ---
 
 ❌ Constructor name different from class name.
 
 ```java
-class Student{
+class Student {
 
-    StudentInfo(){
+    StudentInfo() {
 
     }
 
 }
 ```
 
-Invalid Constructor.
+Not a constructor.
 
 ---
 
@@ -1252,25 +1383,24 @@ Invalid Constructor.
 
 # Interview Questions
 
+### Basic
+
 1. What is a Constructor?
-
 2. Why do we use Constructors?
-
 3. Difference between Constructor and Method?
 
-4. Can Constructors be overloaded?
+### Intermediate
 
-5. Why doesn't Constructor have a return type?
-
+4. What is Constructor Overloading?
+5. What is a Parameterized Constructor?
 6. What is a Copy Constructor?
-
 7. Difference between Shallow Copy and Deep Copy?
 
-8. Does Java support Destructor?
+### Advanced
 
+8. Does Java support Destructors?
 9. What is Garbage Collection?
-
-10. When is Constructor called?
+10. What happens internally when an object is created?
 
 ---
 
@@ -1283,8 +1413,952 @@ Invalid Constructor.
 - Types:
   - Non-Parameterized
   - Parameterized
-  - Copy Constructor
-- Java uses Garbage Collection.
-- Java has no user-defined Destructor.
-- Deep Copy creates separate memory.
+- Constructors can be overloaded.
+- Copy Constructor copies another object.
 - Shallow Copy copies references.
+- Deep Copy copies actual data.
+- Java uses Garbage Collection.
+
+# Inheritance
+
+Inheritance is an OOP concept that allows one class to acquire the properties and methods of another class.
+
+It promotes **Code Reusability** by allowing a child class to reuse the features of its parent class.
+
+---
+
+## Why do we need Inheritance?
+
+Suppose we have two classes.
+
+```java
+class Animal {
+
+    void eat() {
+        System.out.println("Animal eats");
+    }
+
+}
+```
+
+```java
+class Dog {
+
+    void eat() {
+        System.out.println("Animal eats");
+    }
+
+    void bark() {
+        System.out.println("Dog barks");
+    }
+
+}
+```
+
+The `eat()` method is duplicated.
+
+Instead of writing the same code again,
+
+Dog can inherit Animal.
+
+---
+
+## Syntax
+
+```java
+class Parent {
+
+}
+
+class Child extends Parent {
+
+}
+```
+
+Example
+
+```java
+class Animal {
+
+    void eat() {
+
+        System.out.println("Eating");
+
+    }
+
+}
+
+class Dog extends Animal {
+
+    void bark() {
+
+        System.out.println("Barking");
+
+    }
+
+}
+```
+
+Dog can now access
+
+- eat()
+- bark()
+
+---
+
+## Memory Representation
+
+```text
+Dog d1 = new Dog();
+
+↓
+
+Stack
+
+d1
+
+↓
+
+Heap
+
+Dog Object
+
+↓
+
+Animal Properties
+
+↓
+
+Dog Properties
+```
+
+Both Parent and Child members become part of the Child object.
+
+---
+
+# Advantages of Inheritance
+
+- Code Reusability
+- Less Code Duplication
+- Easy Maintenance
+- Extensible Code
+- Supports Polymorphism
+
+---
+
+# Types of Inheritance
+
+## 1. Single Inheritance
+
+```text
+Animal
+
+↓
+
+Dog
+```
+
+---
+
+## 2. Multilevel Inheritance
+
+```text
+Animal
+
+↓
+
+Mammal
+
+↓
+
+Dog
+```
+
+---
+
+## 3. Hierarchical Inheritance
+
+```text
+        Animal
+       /      \
+     Dog      Cat
+```
+
+---
+
+## 4. Hybrid Inheritance
+
+Java does **NOT** support Hybrid Inheritance using classes because it creates ambiguity.
+
+It can be achieved using **Interfaces**.
+
+---
+
+## Why Multiple Inheritance is not supported?
+
+Example
+
+```text
+Father
+
+↓
+
+Child
+
+↑
+
+Mother
+```
+
+If both parents have
+
+```java
+walk()
+```
+
+Which one should Java call?
+
+This creates the **Diamond Problem**.
+
+Therefore,
+
+Java does not support Multiple Inheritance using classes.
+
+---
+
+# Polymorphism
+
+The word Polymorphism means
+
+> **One Interface, Multiple Forms**
+
+A single method can behave differently in different situations.
+
+---
+
+## Types of Polymorphism
+
+### 1. Compile-Time Polymorphism
+
+Achieved using
+
+- Method Overloading
+
+Example
+
+```java
+class Calculator {
+
+    int add(int a, int b){
+
+        return a + b;
+
+    }
+
+    int add(int a, int b, int c){
+
+        return a + b + c;
+
+    }
+
+}
+```
+
+The compiler decides which method to call.
+
+---
+
+### 2. Run-Time Polymorphism
+
+Achieved using
+
+- Method Overriding
+
+Example
+
+```java
+class Animal{
+
+    void sound(){
+
+        System.out.println("Animal");
+
+    }
+
+}
+
+class Dog extends Animal{
+
+    @Override
+    void sound(){
+
+        System.out.println("Bark");
+
+    }
+
+}
+```
+
+Decision is taken during runtime.
+
+---
+
+## Method Overloading vs Method Overriding
+
+| Overloading | Overriding |
+|-------------|------------|
+| Same Method Name | Same Method Name |
+| Different Parameters | Same Parameters |
+| Compile Time | Runtime |
+| Same Class | Parent & Child |
+
+---
+
+# Abstraction
+
+Abstraction means hiding implementation details and showing only essential information.
+
+Users only know **what** to do,
+
+not **how** it works internally.
+
+---
+
+## Real-Life Example
+
+ATM Machine
+
+You press
+
+```text
+Withdraw
+```
+
+Money comes out.
+
+You don't know
+
+- Database Query
+- Server Communication
+- Banking Logic
+
+This is Abstraction.
+
+---
+
+## Abstract Class
+
+An Abstract Class cannot be instantiated.
+
+It may contain
+
+- Abstract Methods
+- Normal Methods
+
+Example
+
+```java
+abstract class Animal{
+
+    abstract void sound();
+
+}
+```
+
+---
+
+## Why Abstract Class?
+
+Suppose every animal makes a different sound.
+
+Instead of writing a generic implementation,
+
+force every child class to implement its own version.
+
+---
+
+# Interfaces
+
+An Interface is a blueprint that contains only method declarations (traditionally). A class implements an interface and provides the method implementations.
+
+Interfaces help achieve
+
+- Abstraction
+- Multiple Inheritance (through interfaces)
+
+---
+
+## Syntax
+
+```java
+interface Animal{
+
+    void sound();
+
+}
+
+class Dog implements Animal{
+
+    public void sound(){
+
+        System.out.println("Bark");
+
+    }
+
+}
+```
+
+---
+
+## Abstract Class vs Interface
+
+| Abstract Class | Interface |
+|----------------|-----------|
+| Uses extends | Uses implements |
+| Can have constructors | Cannot have constructors |
+| Can have instance variables | Fields are constants by default |
+| Single Inheritance | Multiple Interfaces Supported |
+
+---
+
+# Static Keyword
+
+Static belongs to the **Class**, not to individual objects.
+
+Only one copy exists for the entire class.
+
+---
+
+## Static Variable
+
+```java
+class Student{
+
+    static String school = "ABC";
+
+}
+```
+
+Every object shares the same value.
+
+---
+
+## Static Method
+
+```java
+class Student{
+
+    static void display(){
+
+    }
+
+}
+```
+
+Called using
+
+```java
+Student.display();
+```
+
+No object required.
+
+---
+
+# Super Keyword
+
+The `super` keyword refers to the **Parent Class Object**.
+
+It is used to
+
+- Call Parent Constructor
+- Access Parent Variables
+- Call Parent Methods
+
+---
+
+## Calling Parent Constructor
+
+```java
+class Dog extends Animal{
+
+    Dog(){
+
+        super();
+
+    }
+
+}
+```
+
+`super()` is automatically called if not written explicitly.
+
+---
+
+## Access Parent Method
+
+```java
+super.eat();
+```
+
+---
+
+## Access Parent Variable
+
+```java
+super.color;
+```
+
+---
+
+# Common Mistakes
+
+❌ Forgetting `@Override`.
+
+❌ Calling private methods from child class.
+
+❌ Confusing Overloading with Overriding.
+
+❌ Creating objects of Abstract Class.
+
+❌ Forgetting `implements` keyword for Interface.
+
+---
+
+# Interview Questions
+
+### Inheritance
+
+1. What is Inheritance?
+2. Why do we use Inheritance?
+3. Types of Inheritance?
+4. Why doesn't Java support Multiple Inheritance?
+
+### Polymorphism
+
+5. What is Polymorphism?
+6. Difference between Overloading and Overriding?
+7. What is Dynamic Method Dispatch?
+
+### Abstraction
+
+8. What is Abstraction?
+9. Difference between Abstract Class and Interface?
+
+### Static
+
+10. Why is static used?
+11. Difference between Static and Instance Variables?
+
+### Super
+
+12. What is super?
+13. Difference between this and super?
+
+---
+
+# Quick Revision
+
+- Inheritance = Code Reusability.
+- extends → Inheritance.
+- implements → Interface.
+- Overloading → Compile Time.
+- Overriding → Runtime.
+- Abstract Class cannot be instantiated.
+- Interface provides abstraction.
+- Static belongs to Class.
+- super refers to Parent Class.
+
+# JVM Memory Summary
+
+Whenever a Java program runs, the JVM mainly uses two memory areas:
+
+## Stack Memory
+
+Stack Memory stores:
+
+- Method Calls
+- Local Variables
+- Reference Variables
+
+Example
+
+```java
+Student s1 = new Student();
+```
+
+Here,
+
+```text
+Stack
+
+s1
+```
+
+is stored inside Stack Memory.
+
+---
+
+## Heap Memory
+
+Heap Memory stores:
+
+- Objects
+- Instance Variables
+
+Example
+
+```text
+Heap
+
+Student Object
+
+name = "Jatin"
+
+age = 20
+```
+
+Every object created using the `new` keyword is stored in Heap Memory.
+
+---
+
+## Complete Memory Flow
+
+```text
+Student s1 = new Student("Jatin",20);
+
+↓
+
+Stack Memory
+
++-----------+
+| s1 ------ |
++-----------+
+      |
+      |
+      ▼
+
+Heap Memory
+
++----------------------+
+| Student Object       |
+| name = "Jatin"       |
+| age = 20             |
++----------------------+
+```
+
+---
+
+# Complete OOP Flow
+
+```text
+Create Class
+
+↓
+
+Create Object
+
+↓
+
+Constructor Executes
+
+↓
+
+Memory Allocated
+
+↓
+
+Variables Initialized
+
+↓
+
+Methods Accessed
+
+↓
+
+Object Used
+```
+
+---
+
+# OOP Best Practices
+
+✅ Keep instance variables `private`.
+
+✅ Use Getter and Setter methods.
+
+✅ Use meaningful class names.
+
+✅ Keep one class responsible for one task.
+
+✅ Prefer Composition over unnecessary Inheritance.
+
+✅ Use Constructor for initialization.
+
+✅ Avoid duplicate code.
+
+✅ Follow naming conventions.
+
+---
+
+# Common Errors
+
+### 1. Constructor with Return Type
+
+❌ Wrong
+
+```java
+void Student(){
+
+}
+```
+
+✔ Correct
+
+```java
+Student(){
+
+}
+```
+
+---
+
+### 2. Different Constructor Name
+
+❌ Wrong
+
+```java
+class Student{
+
+    StudentInfo(){
+
+    }
+
+}
+```
+
+Constructor name must be same as class name.
+
+---
+
+### 3. Accessing Private Variables
+
+❌ Wrong
+
+```java
+s1.name = "Jatin";
+```
+
+✔ Correct
+
+```java
+s1.setName("Jatin");
+```
+
+---
+
+### 4. Creating Object of Abstract Class
+
+❌ Wrong
+
+```java
+Animal a = new Animal();
+```
+
+---
+
+### 5. Forgetting @Override
+
+Always use
+
+```java
+@Override
+```
+
+when overriding methods.
+
+---
+
+# Interview Tips
+
+Remember these keywords.
+
+| Keyword | Purpose |
+|----------|---------|
+| class | Blueprint |
+| object | Instance |
+| new | Creates Object |
+| this | Current Object |
+| super | Parent Object |
+| extends | Inheritance |
+| implements | Interface |
+| static | Belongs to Class |
+| private | Maximum Security |
+
+---
+
+# Frequently Asked Interview Questions
+
+### OOP Basics
+
+- What is OOP?
+- Why is OOP important?
+- Explain Class and Object.
+- Difference between Class and Object.
+
+### Constructors
+
+- What is a Constructor?
+- Why doesn't Constructor have a return type?
+- Constructor vs Method?
+- Types of Constructors?
+
+### Encapsulation
+
+- What is Data Hiding?
+- Why are variables private?
+- Why use Getter and Setter?
+
+### Inheritance
+
+- Types of Inheritance?
+- Why Multiple Inheritance is not supported?
+- Explain Hybrid Inheritance.
+
+### Polymorphism
+
+- Difference between Overloading and Overriding?
+- What is Dynamic Method Dispatch?
+
+### Abstraction
+
+- Difference between Abstraction and Encapsulation?
+- Abstract Class vs Interface?
+
+### Static
+
+- Why Static?
+- Static Variable vs Instance Variable?
+
+### Super
+
+- Difference between `this` and `super`?
+- Why use `super()`?
+
+---
+
+# Programs Included
+
+- ClassAndObjects.java
+- AccessModifiers.java
+- GettersAndSetters.java
+- Encapsulation.java
+- Constructor.java
+- TypesOfConstructor.java
+- CopyConstructor.java
+- Inheritance.java
+- MultilevelInheritance.java
+- HierarchicalInheritance.java
+- HybridInheritance.java
+- Polymorphism.java
+- Abstraction.java
+- Interfaces.java
+- StaticKeyword.java
+- SuperKeyword.java
+
+---
+
+# Complete OOP Cheat Sheet
+
+```text
+OOP
+
+│
+├── Class
+│
+├── Object
+│
+├── Constructor
+│
+├── Access Modifier
+│
+├── Getter & Setter
+│
+├── Encapsulation
+│
+├── Inheritance
+│
+├── Polymorphism
+│
+├── Abstraction
+│
+├── Interface
+│
+├── Static
+│
+└── Super
+```
+
+---
+
+# Final Quick Revision
+
+✔ OOP = Programming using Classes and Objects.
+
+✔ Class = Blueprint.
+
+✔ Object = Instance of Class.
+
+✔ Objects are stored inside Heap Memory.
+
+✔ Reference Variables are stored inside Stack Memory.
+
+✔ Constructor initializes objects.
+
+✔ Getter reads data.
+
+✔ Setter updates data.
+
+✔ Encapsulation = Data Hiding.
+
+✔ Inheritance = Code Reusability.
+
+✔ Polymorphism = One Interface, Multiple Forms.
+
+✔ Abstraction = Hide Implementation.
+
+✔ Interface supports Abstraction.
+
+✔ Static belongs to Class.
+
+✔ Super refers to Parent Class.
+
+✔ Java uses Garbage Collection.
+
+---
+
+# Conclusion
+
+Object-Oriented Programming is one of the most important concepts in Java.
+
+Understanding OOP makes it easier to build:
+
+- Large Applications
+- Scalable Software
+- Maintainable Projects
+- Real-World Systems
+
+Mastering OOP is essential for Java development, Spring Boot, Android development, and technical interviews.
+
+---
+
+# Author
+
+**Jatin Panchal**
+
+Aspiring Software Developer
+
+Learning Java, DSA, HTML, CSS & JavaScript
+
+GitHub:
+https://github.com/jatinpanchalll

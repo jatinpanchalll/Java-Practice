@@ -8,6 +8,7 @@ public class HirarchicalInheritance {
 
         Dog Dobby = new Dog();
         Dobby.eat();
+        
     }
 }
 
@@ -23,7 +24,7 @@ class Animal{
     }
 }
 
-//DERIVED CLASS
+//DERIVED CLASS A
 class Fish extends Animal{
 
     void swim(){
@@ -31,7 +32,7 @@ class Fish extends Animal{
     }
 }
 
-//DERIVED CLASS
+//DERIVED CLASS B
 class Dog extends Animal{
     int legs;
 }
