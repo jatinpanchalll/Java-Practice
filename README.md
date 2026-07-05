@@ -14,6 +14,7 @@ This repository contains my Java learning journey, DSA practice programs, and pr
 - 2D Arrays
 - Strings
 - Bit Manupulation
+- OOPs
 
 
 ## Author
