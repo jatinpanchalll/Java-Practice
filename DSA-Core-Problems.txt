@@ -22,6 +22,7 @@ BIT MANUPULATION
 4. Clear ith Bit
 5. Check Power of Two
 6. Fast Exponentiation
+7. Update ith Bit
 
 OBJECT-ORIENTED PROGRAMMING (OOP)
 1. Classes & Objects

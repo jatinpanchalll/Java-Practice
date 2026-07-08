@@ -19,11 +19,13 @@ public class SpiralMatrix {
         }
 
         //BOTTOM
+        // if(StartRow != EndRow)
         for(int j=EndCol-1; j>=StartCol; j--){
             System.out.print(Matrix[EndRow][j]+" ");
         }
 
         //LEFT
+        // if(StartCol != EndCol)
         for(int i=EndRow-1; i>=StartRow+1; i--){
             System.out.print(Matrix[i][StartCol]+" ");
         }
