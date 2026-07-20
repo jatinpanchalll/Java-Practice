@@ -15,6 +15,7 @@ This repository contains my Java learning journey, DSA practice programs, and pr
 - Strings
 - Bit Manupulation
 - OOPs
+- Recursion
 
 
 ## Author
