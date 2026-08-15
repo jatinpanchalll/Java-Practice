@@ -1,4 +1,3 @@
-# Java Basics
 ## 📌 What is Java?
 
 * Java is a **case-sensitive** programming language.
@@ -6,6 +5,62 @@
 * Java was developed by **James Gosling**.
 * Java development started around **June 1991**.
 * Java programs follow a structured syntax and require some **boilerplate code**.
+
+### 🌍 Where Does Java Run?
+
+Java source code is compiled into **bytecode** (`.class` files). The bytecode runs on the **JVM (Java Virtual Machine)**.
+
+```text
+Java Source Code (.java)
+        ↓
+      javac
+        ↓
+Bytecode (.class)
+        ↓
+       JVM
+        ↓
+Operating System
+```
+
+Because JVM implementations exist for different operating systems, the same compiled Java program can generally run on:
+
+* Windows
+* Linux
+* macOS
+* Many server/cloud environments
+
+This is the idea behind Java's **"Write Once, Run Anywhere" (WORA)** concept.
+
+### Where Java Is Commonly Used
+
+* Backend and web applications — especially with **Spring / Spring Boot**
+* Enterprise applications
+* Android development (Java is supported, although **Kotlin is now the preferred language for new Android development**)
+* Desktop applications
+* Cloud and distributed systems
+* Big-data technologies and tools
+* Banking and large business systems
+
+### Where Java Does NOT Run Directly
+
+* Java does **not run directly inside a normal web browser** like JavaScript.
+* A browser does not normally execute `.java` or Java `.class` bytecode directly; Java browser applets are obsolete.
+* Java needs a suitable **JVM/runtime environment** to execute ordinary Java bytecode.
+
+> **Interview Point:** Java is platform-independent at the bytecode level, but the **JVM itself is platform-dependent** because a different JVM implementation is provided for different operating systems.
+
+### ⭐ Java Execution Interview Points
+
+* **JDK** → Used mainly to develop Java applications; it includes tools such as `javac`.
+* **JVM** → Executes Java bytecode.
+* **JRE** → Runtime components used to run Java applications; in modern JDK distributions, the JDK provides the runtime needed to run Java programs.
+* Java source code is **not directly executed by the CPU**. It is first compiled to bytecode and then executed by the JVM.
+* The `.java` file contains **source code**.
+* The `.class` file normally contains **bytecode**.
+* `javac` compiles source code.
+* `java` launches a Java application through the JVM.
+* Java is **platform-independent**, while the JVM is **platform-dependent**.
+* Java is not completely "write once, run anywhere" in every practical situation; OS-specific dependencies, native libraries, file paths, GUI behavior, etc. can still affect portability.
 
 ---
 
