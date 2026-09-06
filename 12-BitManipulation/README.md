@@ -227,4 +227,4 @@ O(log n)
 
 # Author
 
-**Jatin Panchal**
+*Jatin Panchal*
