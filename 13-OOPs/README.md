@@ -2354,7 +2354,7 @@ Mastering OOP is essential for Java development, Spring Boot, Android developmen
 
 # Author
 
-**Jatin Panchal**
+*Jatin Panchal*
 
 Aspiring Software Developer
 
