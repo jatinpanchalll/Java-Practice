@@ -6,7 +6,7 @@ public class PrintStarPattern {
 
         int n = sc.nextInt();
 
-        for(int Lines = 1; Lines <= n; Lines++ ){
+        for(int Lines = 1; Lines <= 5; Lines++ ){
             for(int Star=1; Star<=Lines; Star++){
                 System.out.print("*");
             }
