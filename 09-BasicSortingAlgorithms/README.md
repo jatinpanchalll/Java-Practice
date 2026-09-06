@@ -49,4 +49,4 @@ Arrays.sort(arr, Collections.reverseOrder());
 
 
 ## Author
-**Jatin Panchal**
+*Jatin Panchal*
